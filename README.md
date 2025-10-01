@@ -9,7 +9,9 @@
 | Zahra Khaalishah      | 5027241070 |
 | Dimas Muhammad Putra  | 5027241076 |
 
+---
 
+## Soal 1
 1. Peran Eru (Router/Gateway)
 - Eru adalah Router utama yang bertugas menghubungkan jaringan internal dengan jaringan luar (NAT1).
 - Eru membagi jaringan internal menjadi dua Segmen Lokal (LAN) melalui Switch1 dan Switch2.
