@@ -195,27 +195,27 @@ nc 10.15.43.32 3401
 **Langkah**
 1. Akses di terminal dengan nc yang diberikan
    - muncul pertanyaan pertama "How many packets are recorded in the pcapng file?"
-   '<img width="472" height="148" alt="image" src="https://github.com/user-attachments/assets/5bd10ac4-965c-4cee-a9ae-5775e675325e" />'
+   <img width="472" height="148" alt="image" src="https://github.com/user-attachments/assets/5bd10ac4-965c-4cee-a9ae-5775e675325e" />
    - Akses file yang diberikan di wireshark, kemudian perhatikan pojok bawah pada bagian Packets untuk melihat jawaban untuk pertanyaan pertama
-   '<img width="218" height="46" alt="image" src="https://github.com/user-attachments/assets/8d628d69-0d1f-4c38-a7cf-f328d0a8b2b3" />'
+   <img width="218" height="46" alt="image" src="https://github.com/user-attachments/assets/8d628d69-0d1f-4c38-a7cf-f328d0a8b2b3" />
    
 2. "What are the user that successfully logged in?"
   - Dikarenakan Brute Force yang diakses menggunakan http jadi kita akan mencari protocol http pada file tersebut.
-  - '<img width="1373" height="641" alt="image" src="https://github.com/user-attachments/assets/4c30d900-d13b-4fde-a858-e257bc600d21" />'
+   <img width="1373" height="641" alt="image" src="https://github.com/user-attachments/assets/4c30d900-d13b-4fde-a858-e257bc600d21" />
   - Kemudian Follow ip yang menghasilkan "Succesfully" dan disitu muncul user yang suses 
     "username=n1enna&password=y4v4nn4_k3m3nt4r1"
-  - '<img width="432" height="27" alt="image" src="https://github.com/user-attachments/assets/e5da5a7f-9198-42fc-bfea-eb9af89a5ad2" />'
-  - '<img width="552" height="77" alt="image" src="https://github.com/user-attachments/assets/8dbe37e6-30e3-46b8-9843-533f2d2c8136" />'
+    <img width="432" height="27" alt="image" src="https://github.com/user-attachments/assets/e5da5a7f-9198-42fc-bfea-eb9af89a5ad2" />
+    <img width="552" height="77" alt="image" src="https://github.com/user-attachments/assets/8dbe37e6-30e3-46b8-9843-533f2d2c8136" />
     
 3. "In wich stream were the credentials found?"
   - Perhatikan bagian bawah kolom stream
-  - '<img width="153" height="82" alt="image" src="https://github.com/user-attachments/assets/bf4879b9-e0e7-4643-9de1-76054c2d1233" />'
-  - '<img width="498" height="60" alt="image" src="https://github.com/user-attachments/assets/22df1221-7de6-4391-bf0d-07e8e5035877" />'
+    <img width="153" height="82" alt="image" src="https://github.com/user-attachments/assets/bf4879b9-e0e7-4643-9de1-76054c2d1233" />
+    <img width="498" height="60" alt="image" src="https://github.com/user-attachments/assets/22df1221-7de6-4391-bf0d-07e8e5035877" />
 
 4. "What tools are used for brute force?"
  - Pada isi file yang telah di follow, perhatikan bagian  "User-Agent: Fuzz Faster U Fool v2.1.0-dev"
- - '<img width="382" height="36" alt="image" src="https://github.com/user-attachments/assets/18c6e594-bcb0-467a-93be-474893dd56e4" />'
- - '<img width="858" height="90" alt="image" src="https://github.com/user-attachments/assets/9d9dc972-3ae8-4dab-978e-d2aeb51bee34" />'
+   <img width="382" height="36" alt="image" src="https://github.com/user-attachments/assets/18c6e594-bcb0-467a-93be-474893dd56e4" />
+   <img width="858" height="90" alt="image" src="https://github.com/user-attachments/assets/9d9dc972-3ae8-4dab-978e-d2aeb51bee34" />
    
 
 
