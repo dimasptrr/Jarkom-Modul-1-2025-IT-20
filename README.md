@@ -114,6 +114,26 @@ echo nameserver [IP DNS] > /etc/resolv.conf. Jika pada kasus contoh maka
 ## Saoal 6
 
 
+
+
+
+
+### Soal dengan malware
+
+**14. Setelah gagal mengakses FTP, Melkor melancarkan serangan brute force terhadap  
+Manwe. Analisis file capture yang disediakan dan identifikasi upaya brute force Melkor.
+nc 10.15.43.32 3401**
+
+**Langkah**
+1. Akses di terminal dengan nc yang diberikan
+   - muncul pertanyaan pertama "How many packets are recorded in the pcapng file?"
+   <img width="472" height="148" alt="image" src="https://github.com/user-attachments/assets/5bd10ac4-965c-4cee-a9ae-5775e675325e" />
+  - Akses file yang diberikan di wireshark, kemudian perhatikan pojok bawah pada bagian Packets untuk melihat jawaban untuk pertanyaan pertama
+   <img width="218" height="46" alt="image" src="https://github.com/user-attachments/assets/8d628d69-0d1f-4c38-a7cf-f328d0a8b2b3" />
+2. Pertanyaan ke 2 "What are the user that successfully logged in?"
+  - Akses 
+   
+
 **Kelompok:** K-20  
 ---
 ## 
