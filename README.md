@@ -217,6 +217,14 @@ nc 10.15.43.32 3401
    <img width="382" height="36" alt="image" src="https://github.com/user-attachments/assets/18c6e594-bcb0-467a-93be-474893dd56e4" />
    <img width="858" height="90" alt="image" src="https://github.com/user-attachments/assets/9d9dc972-3ae8-4dab-978e-d2aeb51bee34" />
    
+## Soal 15
+Melkor menyusup ke ruang server dan memasang keyboard USB berbahaya pada node Manwe. Buka file capture dan identifikasi pesan atau ketikan (keystrokes) yang berhasil dicuri oleh Melkor untuk menemukan password rahasia.
+nc 10.15.43.32 3402
+
+- Buka terminal dan filenya sperti sebelumnya, kemudian muncul pertanyaan pertama check bagian “GET DESCRIPTION Response String” kemudian kebawah bagian string descriptionnya disitu muncul jawabannya adalah USB “Keyboard”.
+ <img width="690" height="497" alt="image" src="https://github.com/user-attachments/assets/c3b39c67-4b86-4b79-91d8-54c56da2ceb2" />
+ <img width="268" height="46" alt="image" src="https://github.com/user-attachments/assets/7e242900-8b64-40d9-bb5e-1955c193ac21" />
+
 
 
    
