@@ -1,8 +1,15 @@
 # Jarkom-Modul-1-2025-IT-20
 
 **Laporan Resmi Praktikum Modul 1 — Komunikasi Data & Jaringan Komputer 2025**
-Gambar ini menampilkan implementasi topologi jaringan virtual yang terbagi menjadi dua segmen utama, dengan Eru berfungsi sebagai titik pusat (Router) dan penghubung ke luar jaringan (NAT).
-## Soal 1
+
+## Daftar Anggota
+
+| Nama                  | NRP        |
+|-----------------------|------------|
+| Zahra Khaalishah      | 5027241070 |
+| Dimas Muhammad Putra  | 5027241076 |
+
+
 1. Peran Eru (Router/Gateway)
 - Eru adalah Router utama yang bertugas menghubungkan jaringan internal dengan jaringan luar (NAT1).
 - Eru membagi jaringan internal menjadi dua Segmen Lokal (LAN) melalui Switch1 dan Switch2.
