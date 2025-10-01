@@ -112,6 +112,80 @@ echo nameserver [IP DNS] > /etc/resolv.conf. Jika pada kasus contoh maka
 ```
 
 ## Saoal 6
+jadi kita masuk ke manwe dengan menggunakan command
+```
+telnet ip (port melkor)
+```
+setelah itu saya download link sesuai soal
+```
+wget --no-check-certificate "https://docs.google.com/uc?export=download&id=1bE3kF1Nclw0VyKq4bL2VtOOt53IC7lG5" -O traffic.zip
+```
+- setelah itu melakukan unzip
+```
+unzip traffic.zip
+```
+- setelah itu kita start capture di line antara manwe dan shwitch1 agar bisa menangkap tarffic.sh di wireshark
+- nah, setelah itu langsung dijalankan, namun karena permission denied kita melakukan `chmod +x traffic.sh`
+- setelah itu kita jalankan ./traffic.sh
+- lalu melakukan filter di wireshark yaitu `ip.src == 192.221.1.3 or ip.dst == 192.221.1.3`
+
+## soal 7
+Step 1 – Langkah pertama adalah melakukan instalasi vsftpd (Very Secure FTP Daemon) dengan perintah:
+`apt update && apt install vsftpd -y`
+Step 2 – Menambahkan User FTP
+Setelah server terinstal, tambahkan user baru yang akan digunakan untuk login ke FTP:
+`adduser ainur
+adduser melkor`
+Dengan ini, sistem memiliki dua user akun FTP yaitu ainur dan melkor.
+Step 3 – Aktifkan service FTP agar server bisa menerima koneksi : `service vsftpd start`
+Step 4 – Agar dapat melakukan uji coba koneksi, install FTP client dengan perintah: `apt install inetutils-ftp -y`
+Step 5 – Uji Koneksi FTP Lokal
+Lakukan pengujian dengan mencoba login ke server FTP lokal:
+ftp localhost
+Jika berhasil login, berarti server FTP sudah berjalan.
+Step 6 –Buat direktori khusus untuk berbagi file: `mkdir -p /srv/ftp/shared`
+Step 7 – Mengatur Kepemilikan & Hak Akses
+Berikan hak akses penuh kepada user ainur pada direktori shared:
+```
+chown -R ainur:ainur /srv/ftp/shared/
+chmod -R 700 /srv/ftp/shared/
+```
+Step 8 – Edit file konfigurasi utama untuk menyesuaikan pengaturan:
+`nano /etc/vsftpd.conf` dengan menambahkan ini
+```
+listen=YES
+listen_ipv6=NO
+anonymous_enable=NO
+local_enable=YES
+write_enable=YES
+dirmessage_enable=YES
+use_localtime=YES
+xferlog_enable=YES
+connect_from_port_20=YES
+chroot_local_user=YES
+pam_service_name=vsftpd
+allow_writeable_chroot=YES
+local_root=/srv/ftp/shared
+tcp_wrappers=YES
+
+user_config_dir=/etc/vsftpd_user.conf
+userlist_enable=YES
+userlist_file=/etc/vsftpd.user_list
+userlist_deny=YES
+```
+Step 9 – Tambahkan user melkor ke daftar user FTP:
+echo "melkor" | tee /etc/vsftpd.user_list
+Step 10 – Terapkan konfigurasi terbaru dengan merestart service:
+service vsftpd restart
+Step 11 – Terakhir, buka file vsftpd.userlist untuk mengatur izin user:
+nano /etc/vsftpd.userlist
+
+## Soal 8
+pertama masuk ulmo dulu
+setelah itu download di ulmo
+` wget --no-check-certificate "https://docs.google.com/uc?export=download&id=11ra_yTV_adsPIXeIPMSt0vrxCBZu0r33" -O cuaca.zip`
+
+
 
 
 
