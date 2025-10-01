@@ -187,16 +187,10 @@ setelah itu download di ulmo
 
 
 
-
-
-
-
-
-### Soal dengan malware
-
-**14. Setelah gagal mengakses FTP, Melkor melancarkan serangan brute force terhadap  
+## Soal 14
+Setelah gagal mengakses FTP, Melkor melancarkan serangan brute force terhadap  
 Manwe. Analisis file capture yang disediakan dan identifikasi upaya brute force Melkor.
-nc 10.15.43.32 3401**
+nc 10.15.43.32 3401
 
 **Langkah**
 1. Akses di terminal dengan nc yang diberikan
