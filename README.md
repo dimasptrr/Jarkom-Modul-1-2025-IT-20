@@ -225,6 +225,80 @@ nc 10.15.43.32 3402
  <img width="690" height="497" alt="image" src="https://github.com/user-attachments/assets/c3b39c67-4b86-4b79-91d8-54c56da2ceb2" />
  <img width="268" height="46" alt="image" src="https://github.com/user-attachments/assets/7e242900-8b64-40d9-bb5e-1955c193ac21" />
 
+## Soal 16
+Melkor semakin murka ia meletakkan file berbahaya di server milik Manwe. Dari file capture yang ada, identifikasi file apa yang diletakkan oleh Melkor. nc 10.15.43.32 3403
+
+- What credential did the attacker use to log in?
+Format: user:pass. follow bagian yg berwarna ungu, kemudian akan muncul tampilan seperti yg dibawah dan terlihat jawabannya
+`“USER ind@psg420.com
+331 User ind@psg420.com OK. Password required
+PASS {6r_6e#TfT1p”`
+ <img width="1203" height="417" alt="image" src="https://github.com/user-attachments/assets/e05ef9c7-ef9b-4d3b-99a3-6220dc904bf8" />
+ <img width="212" height="46" alt="image" src="https://github.com/user-attachments/assets/6534e701-18e6-41ce-b552-399bd6b88425" />
+
+- “How many files are suspected of containing malware?”
+ada berjumlah 5 yg dihitung dari jumlah exe pada isi file tersebut,
+ex:  perhatikan bagian “SIZE q.exe”  “RETR w.exe” “ “RETR r.exe”
+ <img width="145" height="126" alt="image" src="https://github.com/user-attachments/assets/49884ad2-ca89-40ec-9737-dfdea7c91bf9" />
+
+- Kemudian untuk lanjutannya mencari file sesuai perintah kemudian save as pada device dan buka di terminal baru untuk mengakses isi jawabannya sesuai dengan exe perintahnya, lanjut sampai pertanyaan bagian akhir
+ <img width="522" height="497" alt="image" src="https://github.com/user-attachments/assets/c25dcb92-2612-44bc-8623-a248ffab7e79" />
+
+## Soal 17
+Manwe membuat halaman web di node-nya yang menampilkan gambar cincin agung. Melkor yang melihat web tersebut merasa iri sehingga ia meletakkan file berbahaya agar web tersebut dapat dianggap menyebarkan malware oleh Eru. Analisis file capture untuk menggagalkan rencana Melkor dan menyelamatkan web Manwe. nc 10.15.43.32 3404
+
+- "What is the name of the first suspicious file?"
+  Buka bagian “file’ atas kiri ketika telah meangkses file yg diberikan, tekan “export objects” - “tekan bagian HTTP”
+  <img width="561" height="186" alt="image" src="https://github.com/user-attachments/assets/d01c1fbf-3e43-4a51-ac59-651dbef3c842" />
+  jika sudah akan muncul spt ini, perhatikan bagian “Filename” terdapat 3 pilihan, coba satu satu sampai benar.
+  
+- "What is the name of the second suspicious file?"
+  <img width="662" height="163" alt="image" src="https://github.com/user-attachments/assets/72ccf4f2-e83f-4479-8e12-6e5eeab3dd72" />
+
+- "What is the hash of the second suspicius file (knr.exe)
+  save juga sesuai perintah file knr.exe, akses di (terminal lain) kemudian akan muncul kode unik
+  <img width="666" height="283" alt="image" src="https://github.com/user-attachments/assets/112f7758-37a3-46d4-9c1a-f03a56b7c2aa" />
+
+## Soal 18
+Karena rencana Melkor yang terus gagal, ia akhirnya berhenti sejenak untuk berpikir. Pada saat berpikir ia akhirnya memutuskan untuk membuat rencana jahat lainnya dengan meletakkan file berbahaya lagi tetapi dengan metode yang berbeda. Gagalkan lagi rencana Melkor dengan mengidentifikasi file capture yang disediakan agar dunia tetap aman. 
+nc 10.15.43.32 3405
+
+- Export Objects → SMB pada Wireshark digunakan untuk mengekstrak objek atau file yang ditransfer melalui protokol SMB (Server Message Block). Protokol SMB umumnya digunakan dalam sistem operasi berbasis Windows untuk layanan berbagi berkas (file sharing), printer, maupun komunikasi antar-proses. Dengan memilih opsi ini, Wireshark akan menampilkan daftar file atau objek yang berhasil ditangkap selama sesi komunikasi SMB. Dari daftar tersebut, pengguna dapat menyimpan file tertentu ke dalam komputer lokal untuk dianalisis lebih lanjut.
+
+<img width="621" height="490" alt="image" src="https://github.com/user-attachments/assets/2dd2593a-55ec-4046-aa4f-7090177c6e03" />
+
+- Perhatika yg berformat “exe.” terdapat 2 jumlah untuk jawaban no 1, kemudia nomor 2 dan 3 adalah nama dari tiap file tsb.
+<img width="1197" height="155" alt="image" src="https://github.com/user-attachments/assets/8aee9219-a09f-4ac0-891b-7aed601eb850" />
+
+- jika sudah save file exe yg pertama, kemudian akses di terminal yg berbeda untuk menemukan sha256nya
+<img width="677" height="62" alt="image" src="https://github.com/user-attachments/assets/f3534460-7c31-41ce-a03b-e0486da704d9" />
+
+-lakukan juga untuk pertanyaan terakhir 
+<img width="647" height="58" alt="image" src="https://github.com/user-attachments/assets/e5dcadf1-1284-4ae0-a050-a36c5c2fa95e" />
+
+
+## Soal 19
+Manwe mengirimkan email berisi surat cinta kepada Varda melalui koneksi yang tidak terenkripsi. Melihat hal itu Melkor sipaling jahat langsung melancarkan aksinya yaitu meneror Varda dengan email yang disamarkan. Analisis file capture jaringan dan gagalkan lagi rencana busuk Melkor. nc 10.15.43.32 3406 
+
+- Setelah mengakses ip dan file yg diberikan, terdapat soal pertama. untuk mendapatkan jawaban, akses file kemudian Di baris filter Wireshark tulis: smtp  kemudian follow. dan perhatikan bagian
+`MAIL FROM: <YourLife36@7162.com>, “YourLife”` adalah jawabannya, lalu untuk jawaban pertanyaan ke 2 pada bagian `To stop me, pay exactly 1600$ in bitcoin (BTC).`, `1600` adalah jawabannya. Prtanyaan ketiga perhatikan bagian “My bitcoin wallet is: `1CWHmuF8dHt7HBGx5RKKLgg9QA2GmE3UyL` dan kode unik tsb adalah jawabannya.
+
+<img width="853" height="870" alt="image" src="https://github.com/user-attachments/assets/75ca9fac-7c07-4a52-8d99-a6ea764ba2a6" />
+
+<img width="578" height="237" alt="image" src="https://github.com/user-attachments/assets/e63c7293-267b-49b3-9ca7-423016a40c72" />
+
+## Soal 20
+Untuk yang terakhir kalinya, rencana besar Melkor yaitu menanamkan sebuah file berbahaya kemudian menyembunyikannya agar tidak terlihat oleh Eru. Tetapi Manwë yang sudah merasakan adanya niat jahat dari Melkor, ia menyisipkan bantuan untuk mengungkapkan rencana Melkor. Analisis file capture dan identifikasi kegunaan bantuan yang diberikan oleh Manwë untuk menggagalkan rencana jahat Melkor selamanya. nc 10.15.43.32 3407
+
+- Akses ip serta file yang di beri, kemudian masuk ke Edit → Preferences → Protocols → TLS Wireshark hanya bisa menampilkan paket TLS sebagai Application Data terenkripsi. Agar bisa membaca isi sebenarnya (misalnya HTTP), kita perlu mengaktifkan fitur dekripsi TLS. Fitur ini diatur melalui menu Preferences, khususnya pada bagian protokol TLS. Dengan membuka pengaturan ini, kita memberi tahu Wireshark bahwa akan ada tambahan informasi (kunci) yang bisa dipakai untuk mendekripsi sesi TLS
+ <img width="368" height="281" alt="image" src="https://github.com/user-attachments/assets/a5cc10d0-0edc-4adb-b5a2-8cb80f9a70e7" />
+ <img width="305" height="93" alt="image" src="https://github.com/user-attachments/assets/cf94a95b-214c-434d-95dc-7abb5e72455e" />
+
+- Isi (Pre)-Master-Secret log filename dengan keylogfile.txt Dengan memasukkan path file ini, Wireshark dapat menggunakan key tersebut untuk mendekripsi sesi
+<img width="455" height="40" alt="image" src="https://github.com/user-attachments/assets/e9b12c04-eeaf-45ac-a23d-de74786fb190" />
+
+- Pada pertanyaaan ke 3 save file invest kemudian buka terminal  baru akses dengan tambahan “sha256sum nama file” 
+<img width="652" height="55" alt="image" src="https://github.com/user-attachments/assets/da45fe8b-b6b1-400f-8970-aa9ab0e53732" />
 
 
    
