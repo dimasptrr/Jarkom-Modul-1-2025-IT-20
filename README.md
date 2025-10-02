@@ -12,6 +12,7 @@
 ---
 
 ## Soal 1
+<img width="2424" height="826" alt="no1" src="https://github.com/user-attachments/assets/5f697eb1-979a-4e16-9725-8a4a94d24547" />
 1. Peran Eru (Router/Gateway)
 - Eru adalah Router utama yang bertugas menghubungkan jaringan internal dengan jaringan luar (NAT1).
 - Eru membagi jaringan internal menjadi dua Segmen Lokal (LAN) melalui Switch1 dan Switch2.
@@ -44,50 +45,50 @@ iface eth0 inet dhcp
 
 auto eth1
 iface eth1 inet static
-	address [Prefix IP].1.1
+	address 192.221.1.1
 	netmask 255.255.255.0
 
 auto eth2
 iface eth2 inet static
-	address [Prefix IP].2.1
+	address 192.221.2.1
 	netmask 255.255.255.0
 ```
 Melkor
 ```
 auto eth0
 iface eth0 inet static
-	address [Prefix IP].1.2
+	address 192.221.1.2
 	netmask 255.255.255.0
-	gateway [Prefix IP].1.1
+	gateway 192.221.1.1
 ```
 Manwe
 ```
 auto eth0
 iface eth0 inet static
-	address [Prefix IP].1.3
+	address 192.221.1.3
 	netmask 255.255.255.0
-	gateway [Prefix IP].1.1
+	gateway 192.221.1.1
 ```
 Varda
 ```
 auto eth0
 iface eth0 inet static
-	address [Prefix IP].2.2
+	address 192.221.2.2
 	netmask 255.255.255.0
-	gateway [Prefix IP].2.1
+	gateway 192.221.2.1
 ```
 Ulmo
 ```
 auto eth0
 iface eth0 inet static
-	address [Prefix IP].2.3
+	address 192.221.2.3
 	netmask 255.255.255.0
-	gateway [Prefix IP].2.1
+	gateway 192.221.2.1
 ```
 ## Soal 4
 masukkan ini pada router eru 
 ``` 
-iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s [Prefix IP].0.0/16 
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 192.221.0.0/16 
 ```
 - jika belum terinstall iptables, maka harus install terlebih dahulu:
 ```
@@ -137,6 +138,9 @@ unzip traffic.zip
 - nah, setelah itu langsung dijalankan, namun karena permission denied kita melakukan `chmod +x traffic.sh`
 - setelah itu kita jalankan ./traffic.sh
 - lalu melakukan filter di wireshark yaitu `ip.src == 192.221.1.3 or ip.dst == 192.221.1.3`
+<img width="2545" height="1254" alt="no6" src="https://github.com/user-attachments/assets/73ed45ac-3ca9-4a90-aec5-58b53f69e311" />
+  - ini adalah hasil tangkapan dari wireshark setelah di filter
+
 
 ## soal 7
 Step 1 – Langkah pertama adalah melakukan instalasi vsftpd (Very Secure FTP Daemon) dengan perintah:
@@ -188,12 +192,85 @@ Step 10 – Terapkan konfigurasi terbaru dengan merestart service:
 service vsftpd restart
 Step 11 – Terakhir, buka file vsftpd.userlist untuk mengatur izin user:
 nano /etc/vsftpd.userlist
+<img width="1146" height="792" alt="no7" src="https://github.com/user-attachments/assets/73eeb7f9-b9ef-4f98-9c13-c0140f23a9ca" />
+- ini adalah bukti tes permission dimana yang bisa mengakses file tersebut hanya ainur
+- <img width="813" height="451" alt="no7 2" src="https://github.com/user-attachments/assets/792f2a52-ed45-4292-bec1-7ac57f006d68" />
+- ini adalah bukti dimana yang bisa masuk ke ftp localhost hanya ainur
+
+
+
+
 
 ## Soal 8
-pertama masuk ulmo dulu
-setelah itu download di ulmo
+capture ulmo
+- pertama masuk ulmo dulu
+- setelah itu download di ulmo
 ` wget --no-check-certificate "https://docs.google.com/uc?export=download&id=11ra_yTV_adsPIXeIPMSt0vrxCBZu0r33" -O cuaca.zip`
+- setelah itu melakukan `apt update && apt install inetutils-ftp -y` 
+- setelah mendownload ftp masuk ke ip eru `ftp 192.168.122.251`
+- setelah itu masuk user ainur
+<img width="1234" height="446" alt="no8" src="https://github.com/user-attachments/assets/2ac287da-bb07-487c-848c-f64717788c4f" />
+- lalu lakukan sesuai perintah soal yaitu mengirim ke eru `put cuaca.zip`
+- setelah itu bisa di cek di root eru di shared folder
+- dan yang terakhir yaitu tangkap di wireshark
+<img width="1248" height="340" alt="image" src="https://github.com/user-attachments/assets/a0718160-8ff6-4726-803a-e9a8079a91fd" />
+- nah disini sudah tertulis transfer complete
 
+## Soal 10
+- sesuai perintah soal yang mengirim banyak paket
+- dari melkor : `ping ip eru -c 1000 -f`
+Penjelasan
+  - ping ip eru → nge-ping alamat IP Eru (buat cek koneksi).
+  - -c 1000 → kirim 1000 kali ping, lalu otomatis berhenti.
+  - -f → "flood ping", artinya kirim ping secepat mungkin (tanpa jeda).
+<img width="1142" height="213" alt="no10" src="https://github.com/user-attachments/assets/19861696-22a1-4623-94b3-a417d4ecc929" />
+
+## Soal 11
+(di melkor)
+- step pertama yaitu mendownload dulu `apt-get install -y openbsd-inetd telnetd`
+- selanjutnya yaitu mengubah inetd.conf dengan kode di bawah `nano /etc/inetd.conf`
+```
+telnet stream tcp nowait root /usr/sbin/tcpd /usr/sbin/telnetd
+```
+- setelah itu jalankan terlebih dahulu `service openbsd-inetd restart`
+- selanjutnya kita bisa membuat user, bebas mau apa saja karena inti dari soal ini adalah bagimana memperlihatkan kelemahan telnet yang dapat melihat user dan password yang dapat ditangkap di wireshark
+```
+useradd -m -s /bin/bash melkor
+echo "melkor:melkor" | chpasswd
+```
+(eru)
+- telnet 192.221.1.2
+- Lalu yang terakhir yaitu login sesuai user yang dibuat pada melkor
+- lalu dapat dilihat username dan password yang kita buat tadi di wireshark, contohnya gambar dibawah ini
+<img width="1141" height="1307" alt="Screenshot 2025-10-01 141738" src="https://github.com/user-attachments/assets/d116c68b-9439-46b2-85d6-e8c93116f0e2" />
+
+## Soal 12
+- di melkor MELKOR
+- step pertama yaitu download dulu `apt install ufw apache2 vsftpd -y`
+- setelah itu jalankan ini `service apache2 start && service apache vsftpd start`
+- lalu membuka port 21 (FTP), 23 (telnet), 80 (HTTP) untuk TCP/UDP, lalu menolak port 666 untuk TCP/UDP.
+`ufw allow 21/tcp && ufw allow 21/udp && ufw allow 23/udp && ufw allow 23/tcp && ufw allow 80/tcp && ufw allow 80/udp && ufw deny 666/tcp && ufw deny 666/udp`
+- reload aturan UFW dan meng-enable firewall `ufw reload && ufw enable`
+- menambahkan aturan iptables untuk menerima koneksi TCP ke port 80, 23, 21, dan 666.
+```
+iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+iptables -A INPUT -p tcp --dport 23 -j ACCEPT
+iptables -A INPUT -p tcp --dport 21 -j ACCEPT
+iptables -I INPUT -p tcp --dport 666 -j REJECT
+```
+- masuk ke root eru
+- install netcat `apt update && apt install netcat-openbsd`
+- lalu jalankan ini untuk melihat apakah port ini terbuka/tertutup -vz 192.221.1.2 21 80 666
+
+
+## Soal 13
+- yang pertama download ssh terlebih dahulu `apt-get install -y openssh-server && service ssh start`
+- setelah itu adduser eru
+- setelah itu buka gns3 lalu start capture line varda yang nyambung ke eru 
+- setelah itu masuk ke root eru
+- lalu jalankan ssh eru@192.221.1.1
+- lalu lihat di wireshark
+<img width="2296" height="617" alt="image" src="https://github.com/user-attachments/assets/a92e5a3e-44ef-43da-9280-6c1a5e9d6055" />
 
 
 ## Soal 14
