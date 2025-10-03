@@ -247,7 +247,11 @@ echo "melkor:melkor" | chpasswd
 ## Soal 12
 - di melkor MELKOR
 - step pertama yaitu download dulu `apt install ufw apache2 vsftpd -y`
-- setelah itu jalankan ini `service apache2 start && service apache vsftpd start`
+- setelah itu jalankan ini
+ ```
+service apache2 start
+service vsftpd start
+```
 - lalu membuka port 21 (FTP), 23 (telnet), 80 (HTTP) untuk TCP/UDP, lalu menolak port 666 untuk TCP/UDP.
 `ufw allow 21/tcp && ufw allow 21/udp && ufw allow 23/udp && ufw allow 23/tcp && ufw allow 80/tcp && ufw allow 80/udp && ufw deny 666/tcp && ufw deny 666/udp`
 - reload aturan UFW dan meng-enable firewall `ufw reload && ufw enable`
@@ -268,7 +272,7 @@ iptables -I INPUT -p tcp --dport 666 -j REJECT
 - setelah itu adduser eru
 - setelah itu buka gns3 lalu start capture line varda yang nyambung ke eru 
 - setelah itu masuk ke root eru
-- lalu jalankan ssh eru@192.221.1.1
+- lalu jalankan ssh eru@192.221.2.2
 - lalu lihat di wireshark
 <img width="2296" height="617" alt="image" src="https://github.com/user-attachments/assets/a92e5a3e-44ef-43da-9280-6c1a5e9d6055" />
 
